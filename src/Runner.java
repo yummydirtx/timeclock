@@ -20,7 +20,13 @@ public class Runner {
             }
         } else if (input.equals("c")) {
             // Create a new user if current user is an admin
-            while (!Data.userList.get(LogIn.getCurrentUser()).isAdmin()) {
+            boolean notAdmin = true;
+            if (LogIn.getCurrentUser() != -1) {
+                if (Data.userList.get(LogIn.getCurrentUser()).isAdmin()) {
+                    notAdmin = false;
+                }
+            }
+            while (notAdmin) {
                 System.out.println(
                         "To do this you must log in as an admin. (if there is no admin account then type in 0 for username and set the password to the one you'd like to be associated with the first admin) -1 to cancel");
                 System.out.println("Enter your username: ");
@@ -36,6 +42,7 @@ public class Runner {
                 } else {
                     System.out.println("Incorrect username or password.");
                 }
+                notAdmin = !Data.userList.get(LogIn.getCurrentUser()).isAdmin();
             }
             if (Data.userList.get(LogIn.getCurrentUser()).isAdmin()) {
                 System.out.println("Enter the password for the user you would like to create: ");
