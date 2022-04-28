@@ -16,6 +16,5 @@ public class Runner {
         } else {
             System.out.println("Invalid username or password");
         }
-        FMan.writepath();
     }
 }
