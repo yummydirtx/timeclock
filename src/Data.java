@@ -4,6 +4,7 @@
 //import org.omg.CORBA.Context;
 
 import user.User;
+import user.Admin;
 
 import java.util.ArrayList;
 //import java.io.FileOutputStream;
@@ -15,8 +16,12 @@ public class Data {
     private static ArrayList<ArrayList<String>> timeList = new ArrayList<ArrayList<String>>();
     public static ArrayList<User> userList = new ArrayList<User>();
 
-    public static void addUser(User user) {
-        userList.add(user);
+    public static void addUser(boolean isAdmin, String password) {
+        if (isAdmin) {
+            userList.add(new Admin(password));
+        } else {
+            userList.add(new User(password));
+        }
         timeList.add(new ArrayList<String>(7));
     }
 

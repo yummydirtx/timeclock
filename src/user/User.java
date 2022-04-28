@@ -9,7 +9,7 @@ public class User {
         this.password = "";
     }
 
-    public User(String username, String password) {
+    public User(String password) {
         this.password = password;
     }
 
@@ -24,5 +24,10 @@ public class User {
     // Allow outside classes to check the password
     public boolean validatePassword(String password) {
         return this.password.equals(password);
+    }
+
+    // Users are not admins by default
+    public boolean isAdmin() {
+        return false;
     }
 }
