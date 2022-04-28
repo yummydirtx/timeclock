@@ -1,3 +1,5 @@
+package user;
+
 public class User {
     // Each user should have a password
     private String password;

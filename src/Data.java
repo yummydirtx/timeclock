@@ -2,6 +2,9 @@ import java.io.File;
 import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import org.omg.CORBA.Context;
+
+import user.User;
+
 import java.util.ArrayList;
 import java.io.FileOutputStream;
 import java.io.IOException;
