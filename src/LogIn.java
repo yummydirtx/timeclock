@@ -1,4 +1,5 @@
 public class LogIn {
+    // Records the current user
     private static int currentUser = -1;
 
     // Basic login function, validates the password to the username
