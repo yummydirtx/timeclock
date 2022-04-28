@@ -20,4 +20,9 @@ public class User {
             this.password = password;
         }
     }
+
+    // Allow outside classes to check the password
+    public boolean validatePassword(String password) {
+        return this.password.equals(password);
+    }
 }
