@@ -12,8 +12,13 @@ import java.io.FileNotFoundException;
 
 public class Data {
 
-    private ArrayList<ArrayList<String>> timeList = new ArrayList<ArrayList<String>>();
-    private ArrayList<User> userList = new ArrayList<User>();
+    private static ArrayList<ArrayList<String>> timeList = new ArrayList<ArrayList<String>>();
+    private static ArrayList<User> userList = new ArrayList<User>();
+
+    public void addUser(User user) {
+        userList.add(user);
+        timeList.add(new ArrayList<String>(7));
+    }
     /*
      * todo
      * // Implementation courtesy of
