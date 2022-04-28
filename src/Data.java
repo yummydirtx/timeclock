@@ -1,23 +1,27 @@
-import java.io.File;
-import java.io.ObjectOutput;
-import java.io.ObjectOutputStream;
-import org.omg.CORBA.Context;
+//import java.io.File;
+//import java.io.ObjectOutput;
+//import java.io.ObjectOutputStream;
+//import org.omg.CORBA.Context;
 
 import user.User;
 
 import java.util.ArrayList;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.FileNotFoundException;
+//import java.io.FileOutputStream;
+//import java.io.IOException;
+//import java.io.FileNotFoundException;
 
 public class Data {
 
     private static ArrayList<ArrayList<String>> timeList = new ArrayList<ArrayList<String>>();
     private static ArrayList<User> userList = new ArrayList<User>();
 
-    public void addUser(User user) {
+    public static void addUser(User user) {
         userList.add(user);
         timeList.add(new ArrayList<String>(7));
+    }
+
+    public static void recordTime(int user, int day, String time) {
+        timeList.get(user).set(day, time);
     }
     /*
      * todo
