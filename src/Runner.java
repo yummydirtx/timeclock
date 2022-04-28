@@ -2,10 +2,12 @@ import java.util.Scanner;
 
 public class Runner {
     public static void main(String[] args) throws Exception {
+        // Ask if the user would like to login
         System.out.println("Would you like to login, or create a new user? (l) or (c)");
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
         if (input.equals("l")) {
+            // Run the login
             System.out.println("Enter your username: ");
             int username = scanner.nextInt();
             System.out.println("Enter your password: ");
@@ -17,9 +19,10 @@ public class Runner {
                 System.out.println("Incorrect username or password.");
             }
         } else if (input.equals("c")) {
+            // Create a new user if current user is an admin
             while (!Data.userList.get(LogIn.getCurrentUser()).isAdmin()) {
                 System.out.println(
-                        "To do this you must log in as an admin. (if there is no admin account then type in 0 for both fields) -1 to cancel");
+                        "To do this you must log in as an admin. (if there is no admin account then type in 0 for username and set the password to the one you'd like to be associated with the first admin) -1 to cancel");
                 System.out.println("Enter your username: ");
                 int username = scanner.nextInt();
                 if (username == -1) {

@@ -4,6 +4,13 @@ public class LogIn {
 
     // Basic login function, validates the password to the username
     public static int logIn(int username, String password) {
+        if (Data.userList.size() == 0) {
+            System.out.println("There are no users. Creating a user...");
+            Data.addUser(true, password);
+            System.out.println("User created successfully!");
+            currentUser = 0;
+            return 0;
+        }
         if (username > Data.userList.size() - 1) {
             return -1;
         }
