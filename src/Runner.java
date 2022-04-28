@@ -1,13 +1,11 @@
 import java.util.Scanner;
 
-import user.LogIn;
-
 public class Runner {
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
         System.out.println("Enter your username: ");
         Scanner scanner = new Scanner(System.in);
-        String username = scanner.nextLine();
+        int username = scanner.nextInt();
         System.out.println("Enter your password: ");
         String password = scanner.nextLine();
         int result = LogIn.logIn(username, password);

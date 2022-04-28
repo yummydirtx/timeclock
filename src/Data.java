@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Data {
 
     private static ArrayList<ArrayList<String>> timeList = new ArrayList<ArrayList<String>>();
-    private static ArrayList<User> userList = new ArrayList<User>();
+    public static ArrayList<User> userList = new ArrayList<User>();
 
     public static void addUser(User user) {
         userList.add(user);
