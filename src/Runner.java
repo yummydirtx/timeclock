@@ -6,7 +6,7 @@ public class Runner {
         boolean running = true;
         while (running) {
             // Ask if the user would like to login
-            System.out.println("Would you like to login, or create a new user? (l) or (c)");
+            System.out.println("Would you like to login, or create a new user? (l) or (c) (q to exit)");
             Scanner scanner = new Scanner(System.in);
             String input = scanner.nextLine();
             if (input.equals("l")) {
@@ -61,7 +61,11 @@ public class Runner {
                 } else {
                     System.out.println("You must log in as an admin to create a user.");
                 }
+            } else if (input.equals("q")) {
+                // Exit the program
+                running = false;
             } else {
+                // Invalid input
                 System.out.println("Invalid input.");
             }
         }
