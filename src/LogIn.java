@@ -11,6 +11,7 @@ public class LogIn {
             Data.addUser(true, password);
             System.out.println("User created successfully!");
             System.out.println("Username: " + (Data.userList.size() - 1));
+            System.out.println("Password: " + password);
             currentUser = 0;
             return 0;
         }
@@ -62,6 +63,8 @@ public class LogIn {
                 Data.addUser(false, password);
             }
             System.out.println("User created successfully!");
+            System.out.println("Username: " + (Data.userList.size() - 1));
+            System.out.println("Password: " + password);
         } else {
             System.out.println("You must log in as an admin to create a user.");
         }
