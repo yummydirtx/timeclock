@@ -4,6 +4,20 @@ public class LogIn {
     // Records the current user
     private static int currentUser = -1;
 
+    public static void loginPrompt() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter your username: ");
+        int username = scanner.nextInt();
+        System.out.println("Enter your password: ");
+        String password = scanner.next();
+        int result = logIn(username, password);
+        if (result == 0) {
+            System.out.println("Logged in successfully!");
+        } else {
+            System.out.println("Incorrect username or password.");
+        }
+    }
+
     // Basic login function, validates the password to the username
     public static int logIn(int username, String password) {
         if (Data.userList.size() == 0) {
