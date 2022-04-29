@@ -11,16 +11,7 @@ public class Runner {
             String input = scanner.nextLine();
             if (input.equals("l")) {
                 // Run the login
-                System.out.println("Enter your username: ");
-                int username = scanner.nextInt();
-                System.out.println("Enter your password: ");
-                String password = scanner.next();
-                int result = LogIn.logIn(username, password);
-                if (result == 0) {
-                    System.out.println("Logged in successfully!");
-                } else {
-                    System.out.println("Incorrect username or password.");
-                }
+                LogIn.loginPrompt();
             } else if (input.equals("c")) {
                 // Create a new user if current user is an admin
                 LogIn.createUser();
