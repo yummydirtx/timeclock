@@ -9,6 +9,7 @@ public class Runner {
             System.out.println("Would you like to login, or create a new user? (l) or (c) (q to exit)");
             Scanner scanner = new Scanner(System.in);
             String input = scanner.nextLine();
+            scanner.close();
             if (input.equals("l")) {
                 // Run the login
                 LogIn.loginPrompt();

@@ -16,6 +16,7 @@ public class LogIn {
         } else {
             System.out.println("Incorrect username or password.");
         }
+        scanner.close();
     }
 
     // Basic login function, validates the password to the username
@@ -82,6 +83,7 @@ public class LogIn {
         } else {
             System.out.println("You must log in as an admin to create a user.");
         }
+        scanner.close();
     }
 
     // Logout function, sets currentUser to -1
