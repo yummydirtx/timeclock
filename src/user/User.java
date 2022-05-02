@@ -4,6 +4,7 @@ public class User {
     // Each user should have a password
     private String password;
     private Long clockInTime;
+    private boolean clockedIn = false;
 
     // Two basic constructors
     public User() {
@@ -28,6 +29,14 @@ public class User {
 
     public void setClockInTime(Long clockInTime) {
         this.clockInTime = clockInTime;
+    }
+
+    public boolean isClockedIn() {
+        return clockedIn;
+    }
+
+    public void setClockedIn(boolean clockedIn) {
+        this.clockedIn = clockedIn;
     }
 
     // Allow outside classes to check the password
