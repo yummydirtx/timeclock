@@ -1,6 +1,8 @@
 package user;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     // Each user should have a password
     private String password;
     private Long clockInTime;

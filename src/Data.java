@@ -49,7 +49,7 @@ public class Data {
             out.writeObject(timeList);
             out.close();
             fileOut.close();
-            System.out.println("\nSerialization completed successfully...\n");
+            // System.out.println("\nSerialization completed successfully...\n");
             // Catch any exceptions
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -63,7 +63,7 @@ public class Data {
             out.writeObject(userList);
             out.close();
             fileOut.close();
-            System.out.println("\nSerialization completed successfully...\n");
+            // System.out.println("\nSerialization completed successfully...\n");
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();

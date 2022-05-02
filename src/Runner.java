@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Runner {
     public static void main(String[] args) throws Exception {
         // Control the main logic loop
+        Data.loadData();
         boolean running = true;
         while (running) {
             // Ask if the user would like to login
@@ -44,5 +45,6 @@ public class Runner {
                 }
             }
         }
+        Data.saveData();
     }
 }

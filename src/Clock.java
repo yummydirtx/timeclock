@@ -18,7 +18,7 @@ public class Clock {
             // print that the user is already clocked in
             System.out.println("You are already clocked in.");
         }
-        // int day = calendar.get(Calendar.DAY_OF_WEEK);
+
     }
 
     // clock out
@@ -34,5 +34,9 @@ public class Clock {
             // print that the user is already clocked out
             System.out.println("You are already clocked out.");
         }
+    }
+
+    public static double totalTime(double a) {
+        return 0.0;
     }
 }
