@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class Data {
 
-    private static ArrayList<ArrayList<Double>> timeList = new ArrayList<ArrayList<Double>>();
+    private static ArrayList<ArrayList<Long>> timeList = new ArrayList<ArrayList<Long>>();
     public static ArrayList<User> userList = new ArrayList<User>();
 
     public static void addUser(boolean isAdmin, String password) {
@@ -22,19 +22,19 @@ public class Data {
         } else {
             userList.add(new User(password));
         }
-        timeList.add(new ArrayList<Double>(7));
+        timeList.add(new ArrayList<Long>(7));
     }
 
-    public static void recordTime(int user, int day, Double time) {
+    public static void recordTime(int user, int day, Long time) {
         timeList.get(user).set(day, time);
     }
 
-    public static Double getTime(int user, int day) {
+    public static Long getTime(int user, int day) {
         return timeList.get(user).get(day);
     }
 
-    public static Double getTotalTime(int user) {
-        Double total = 0.0;
+    public static Long getTotalTime(int user) {
+        Long total = 0l;
         for (int i = 0; i < 7; i++) {
             total += timeList.get(user).get(i);
         }
