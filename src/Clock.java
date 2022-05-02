@@ -1,6 +1,11 @@
+import java.util.Calendar;
+
 public class Clock {
     // clock in
+
     public static void clockIn() {
+        Calendar calendar = Calendar.getInstance();
+        System.out.println(calendar.get(Calendar.DAY_OF_WEEK));
         // if the user is not clocked in
         if (!Data.userList.get(LogIn.getCurrentUser()).isClockedIn()) {
             // clock in
@@ -13,6 +18,7 @@ public class Clock {
             // print that the user is already clocked in
             System.out.println("You are already clocked in.");
         }
+        // int day = calendar.get(Calendar.DAY_OF_WEEK);
     }
 
     // clock out

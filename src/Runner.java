@@ -22,13 +22,13 @@ public class Runner {
                 // Invalid input
                 System.out.println("Invalid input.");
             }
-            if (LogIn.getCurrentUser() != -1) {
+            if (LogIn.getCurrentUser() != -1 && running) {
                 // If the user is logged in, ask if they would like to do something else
                 System.out.println("What would you like to do? Clock (i)n, Clock (o)ut, (a)dmin console, or (l)ogout");
                 input = scanner.nextLine();
                 if (input.equals("i")) {
                     // Clock in
-                    // Clock.clockIn();
+                    Clock.clockIn();
                 } else if (input.equals("o")) {
                     // Clock out
                     // Clock.clockOut();
