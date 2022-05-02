@@ -3,6 +3,7 @@ package user;
 public class User {
     // Each user should have a password
     private String password;
+    private Long clockInTime;
 
     // Two basic constructors
     public User() {
@@ -19,6 +20,14 @@ public class User {
         if (oldPass.equals(this.password)) {
             this.password = password;
         }
+    }
+
+    public Long getClockInTime() {
+        return clockInTime;
+    }
+
+    public void setClockInTime(Long clockInTime) {
+        this.clockInTime = clockInTime;
     }
 
     // Allow outside classes to check the password
