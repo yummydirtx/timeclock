@@ -1,15 +1,12 @@
-//import java.io.File;
-//import java.io.ObjectOutput;
-//import java.io.ObjectOutputStream;
-//import org.omg.CORBA.Context;
-
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import user.User;
 import user.Admin;
-
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
-//import java.io.FileOutputStream;
-//import java.io.IOException;
-//import java.io.FileNotFoundException;
 
 public class Data {
 
@@ -40,32 +37,71 @@ public class Data {
         }
         return total;
     }
-    /*
-     * todo
-     * // Implementation courtesy of
-     * //
-     * https://gagandroid.blogspot.com/2015/03/read-or-write-serializable-arraylist.
-     * html
-     * public static void write(Context context, Object nameOfClassGetterSetter) {
-     * File directory = new File(context.getFilesDir().getAbsolutePath()
-     * + File.separator + "serlization");
-     * if (!directory.exists()) {
-     * directory.mkdirs();
-     * }
-     * 
-     * String filename = "AnyName.srl";
-     * ObjectOutput out = null;
-     * 
-     * try {
-     * out = new ObjectOutputStream(new FileOutputStream(directory
-     * + File.separator + filename));
-     * out.writeObject(nameOfClass);
-     * out.close();
-     * } catch (FileNotFoundException e) {
-     * e.printStackTrace();
-     * } catch (IOException e) {
-     * e.printStackTrace();
-     * }
-     * }
-     */
+
+    // Serialize and save the data
+    public static void saveData() {
+        try {
+            // Create the file
+            FileOutputStream fileOut = new FileOutputStream("timeList.alex");
+            // Create the object output stream
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            // Write the data
+            out.writeObject(timeList);
+            out.close();
+            fileOut.close();
+            System.out.println("\nSerialization completed successfully...\n");
+            // Catch any exceptions
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        // repeat for userList
+        try {
+            FileOutputStream fileOut = new FileOutputStream("userList.alex");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(userList);
+            out.close();
+            fileOut.close();
+            System.out.println("\nSerialization completed successfully...\n");
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void loadData() {
+        try {
+            FileInputStream fileIn = new FileInputStream("timeList.alex");
+            // Create the object input stream
+            ObjectInputStream ois = new ObjectInputStream(fileIn);
+            // Read the data
+            timeList = (ArrayList) ois.readObject();
+            ois.close();
+            fileIn.close();
+            // Catch any exceptions
+        } catch (FileNotFoundException e) {
+            saveData();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        // repeat for userList
+        try {
+            FileInputStream fileIn = new FileInputStream("userList.alex");
+            ObjectInputStream ois = new ObjectInputStream(fileIn);
+            userList = (ArrayList) ois.readObject();
+            ois.close();
+            fileIn.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 }
