@@ -28,13 +28,13 @@ public class Runner {
                 input = scanner.nextLine();
                 if (input.equals("i")) {
                     // Clock in
-                    Clock.clockIn();
+                    // Clock.clockIn();
                 } else if (input.equals("o")) {
                     // Clock out
-                    Clock.clockOut();
+                    // Clock.clockOut();
                 } else if (input.equals("a")) {
                     // Run the admin console
-                    AdminConsole.run();
+                    // AdminConsole.run();
                 } else if (input.equals("l")) {
                     // Logout
                     LogIn.logOut();
