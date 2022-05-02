@@ -38,5 +38,6 @@ public class Clock {
 
     public static double totalTime(double a) {
         return 0.0;
+
     }
 }
