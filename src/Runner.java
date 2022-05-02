@@ -22,6 +22,27 @@ public class Runner {
                 // Invalid input
                 System.out.println("Invalid input.");
             }
+            if (LogIn.getCurrentUser() != -1) {
+                // If the user is logged in, ask if they would like to do something else
+                System.out.println("What would you like to do? Clock (i)n, Clock (o)ut, (a)dmin console, or (l)ogout");
+                input = scanner.nextLine();
+                if (input.equals("i")) {
+                    // Clock in
+                    Clock.clockIn();
+                } else if (input.equals("o")) {
+                    // Clock out
+                    Clock.clockOut();
+                } else if (input.equals("a")) {
+                    // Run the admin console
+                    AdminConsole.run();
+                } else if (input.equals("l")) {
+                    // Logout
+                    LogIn.logOut();
+                } else {
+                    // Invalid input
+                    System.out.println("Invalid input.");
+                }
+            }
         }
     }
 }
