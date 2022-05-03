@@ -25,7 +25,7 @@ public class LogIn {
             System.out.println("There are no users. Creating a user...");
             Scanner scanner = new Scanner(System.in);
             System.out.println("Enter your name:");
-            String name = scanner.next();
+            String name = scanner.nextLine();
             System.out.println("Enter your wage:");
             double wage = scanner.nextDouble();
             Data.addUser(true, password, name, wage);
@@ -63,7 +63,7 @@ public class LogIn {
                 break;
             }
             System.out.println("Enter your password: ");
-            String password = scanner.next();
+            String password = scanner.nextLine();
             int result = LogIn.logIn(username, password);
             if (result == 0) {
                 System.out.println("Logged in successfully!");
@@ -74,11 +74,11 @@ public class LogIn {
         }
         if (Data.userList.get(LogIn.getCurrentUser()).isAdmin()) {
             System.out.println("Enter the password for the user you would like to create: ");
-            String password = scanner.next();
+            String password = scanner.nextLine();
             System.out.println("Is this user an admin? (y/n)");
             String admin = scanner.next();
             System.out.println("What is this user's name?");
-            String name = scanner.next();
+            String name = scanner.nextLine();
             System.out.println("What is this user's wage?");
             double wage = scanner.nextDouble();
             if (admin.equals("y")) {
