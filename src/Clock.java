@@ -1,5 +1,6 @@
 import java.util.Calendar;
 
+// Manage time functions
 public class Clock {
     // clock in
 
