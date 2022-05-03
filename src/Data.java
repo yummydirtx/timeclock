@@ -13,11 +13,11 @@ public class Data {
     private static ArrayList<ArrayList<Long>> timeList = new ArrayList<ArrayList<Long>>();
     public static ArrayList<User> userList = new ArrayList<User>();
 
-    public static void addUser(boolean isAdmin, String password) {
+    public static void addUser(boolean isAdmin, String password, String username, double wage) {
         if (isAdmin) {
-            userList.add(new Admin(password));
+            userList.add(new Admin(password, username, wage));
         } else {
-            userList.add(new User(password));
+            userList.add(new User(password, username, wage));
         }
         timeList.add(new ArrayList<Long>(7));
     }

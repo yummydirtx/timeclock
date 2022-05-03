@@ -22,7 +22,12 @@ public class LogIn {
     public static int logIn(int username, String password) {
         if (Data.userList.size() == 0) {
             System.out.println("There are no users. Creating a user...");
-            Data.addUser(true, password);
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Enter your name:");
+            String name = scanner.next();
+            System.out.println("Enter your wage:");
+            double wage = scanner.nextDouble();
+            Data.addUser(true, password, name, wage);
             System.out.println("User created successfully!");
             System.out.println("Username: " + (Data.userList.size() - 1));
             System.out.println("Password: " + password);
@@ -71,10 +76,14 @@ public class LogIn {
             String password = scanner.next();
             System.out.println("Is this user an admin? (y/n)");
             String admin = scanner.next();
+            System.out.println("What is this user's name?");
+            String name = scanner.next();
+            System.out.println("What is this user's wage?");
+            double wage = scanner.nextDouble();
             if (admin.equals("y")) {
-                Data.addUser(true, password);
+                Data.addUser(true, password, name, wage);
             } else {
-                Data.addUser(false, password);
+                Data.addUser(false, password, name, wage);
             }
             System.out.println("User created successfully!");
             System.out.println("Username: " + (Data.userList.size() - 1));

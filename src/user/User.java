@@ -15,8 +15,10 @@ public class User implements Serializable {
         this.password = "";
     }
 
-    public User(String password) {
+    public User(String password, String username, double wage) {
         this.password = password;
+        this.username = username;
+        this.wage = wage;
     }
 
     // Getters and setters, with validation for password
