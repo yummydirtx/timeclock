@@ -13,6 +13,7 @@ public class LogIn {
         int result = logIn(username, password);
         if (result == 0) {
             System.out.println("Logged in successfully!");
+            System.out.println("Hello " + Data.userList.get(username).getUsername() + "!");
         } else {
             System.out.println("Incorrect username or password.");
         }
