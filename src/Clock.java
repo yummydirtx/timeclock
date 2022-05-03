@@ -3,6 +3,8 @@ import java.util.Calendar;
 // Manage time functions
 public class Clock {
     // clock in
+    public double timeIn;
+    public double timeOut;
 
     public static void clockIn() {
         Calendar calendar = Calendar.getInstance();
@@ -12,7 +14,8 @@ public class Clock {
             // clock in
             Data.userList.get(LogIn.getCurrentUser()).setClockedIn(true);
             // set the clock in time
-            Data.userList.get(LogIn.getCurrentUser()).setClockInTime(System.currentTimeMillis());
+            timeIn = Data.userList.get(LogIn.getCurrentUser()).setClockInTime(System.currentTimeMillis());
+            //Data.userList.get(LogIn.getCurrentUser()).setClockInTime(System.currentTimeMillis());
             // print that the user has clocked in
             System.out.println("You have clocked in.");
         } else {
@@ -29,6 +32,8 @@ public class Clock {
             // clock out
             Data.userList.get(LogIn.getCurrentUser()).setClockedIn(false);
             // record time worked to the correct day of the week in timeList
+            timeOut = Data.userList.get(LogIn.getCurrentUser()).setClockOutTime(System.currentTimeMillis());
+            //Data.userList.get(LogIn.getCurrentUser()).setClockOutTime(System.currentTimeMillis());
             // print that the user has clocked out
             System.out.println("You have clocked out.");
         } else {
@@ -38,7 +43,9 @@ public class Clock {
     }
 
     public static double totalTime(double a) {
-        return 0.0;
-
+        //end time subtracted from start time
+        double total = timeOut - timeIn;
+        return total;
+        //return 0.0;
     }
 }
