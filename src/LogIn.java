@@ -13,6 +13,7 @@ public class LogIn {
         int result = logIn(username, password);
         if (result == 0) {
             System.out.println("Logged in successfully!");
+            System.out.println("Hello " + Data.userList.get(username).getUsername() + "!");
         } else {
             System.out.println("Incorrect username or password.");
         }
@@ -22,7 +23,12 @@ public class LogIn {
     public static int logIn(int username, String password) {
         if (Data.userList.size() == 0) {
             System.out.println("There are no users. Creating a user...");
-            Data.addUser(true, password);
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Enter your name:");
+            String name = scanner.nextLine();
+            System.out.println("Enter your wage:");
+            double wage = scanner.nextDouble();
+            Data.addUser(true, password, name, wage);
             System.out.println("User created successfully!");
             System.out.println("Username: " + (Data.userList.size() - 1));
             System.out.println("Password: " + password);
@@ -57,7 +63,7 @@ public class LogIn {
                 break;
             }
             System.out.println("Enter your password: ");
-            String password = scanner.next();
+            String password = scanner.nextLine();
             int result = LogIn.logIn(username, password);
             if (result == 0) {
                 System.out.println("Logged in successfully!");
@@ -68,13 +74,17 @@ public class LogIn {
         }
         if (Data.userList.get(LogIn.getCurrentUser()).isAdmin()) {
             System.out.println("Enter the password for the user you would like to create: ");
-            String password = scanner.next();
+            String password = scanner.nextLine();
             System.out.println("Is this user an admin? (y/n)");
             String admin = scanner.next();
+            System.out.println("What is this user's name?");
+            String name = scanner.nextLine();
+            System.out.println("What is this user's wage?");
+            double wage = scanner.nextDouble();
             if (admin.equals("y")) {
-                Data.addUser(true, password);
+                Data.addUser(true, password, name, wage);
             } else {
-                Data.addUser(false, password);
+                Data.addUser(false, password, name, wage);
             }
             System.out.println("User created successfully!");
             System.out.println("Username: " + (Data.userList.size() - 1));
