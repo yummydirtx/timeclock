@@ -26,7 +26,7 @@ public class AdminConsole {
                 // List all users
                 System.out.println("Users: ");
                 for (int i = 0; i < Data.userList.size(); i++) {
-                    System.out.println(i);
+                    System.out.println(i + " - " + Data.userList.get(i).getUsername());
                 }
             } else if (input.equals("q")) {
                 // Quit
