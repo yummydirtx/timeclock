@@ -34,7 +34,7 @@ public class Clock {
             // record time worked to the correct day of the week in timeList
             Data.recordTime(LogIn.getCurrentUser(), calendar.get(Calendar.DAY_OF_WEEK), totalTime());
             // print that the user has clocked out
-            System.out.println("You have clocked out.");
+            System.out.println("You have clocked out. Current time: " + java.time.LocalTime.now() + ". Total time: " + totalTime());
         } else {
             // print that the user is already clocked out
             System.out.println("You are already clocked out.");
