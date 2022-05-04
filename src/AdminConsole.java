@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import dnl.utils.text.table.TextTable;
+import java.util.ArrayList;
 
 public class AdminConsole {
     public static void run() {
@@ -25,10 +26,32 @@ public class AdminConsole {
                 }
             } else if (input.equals("l")) {
                 // List all users
+                final String[] top = { "Username", "Name", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun", "Total",
+                        "Wage", "Earnings" };
+                ArrayList<String[]> rows = new ArrayList<String[]>();
+                for (int i = 0; i < Data.userList.size(); i++) {
+                    String[] row = {
+                            Integer.toString(Data.userList.get(i).getUsername()),
+                            Data.userList.get(i).getName(),
+                            Long.toString(Data.getTime(i, 1)),
+                            Long.toString(Data.getTime(i, 2)),
+                            Long.toString(Data.getTime(i, 3)),
+                            Long.toString(Data.getTime(i, 4)),
+                            Long.toString(Data.getTime(i, 5)),
+                            Long.toString(Data.getTime(i, 6)),
+                            Long.toString(Data.getTime(i, 7)),
+                            Long.toString(Data.getTotalTime(i)),
+                            Double.toString(Data.userList.get(i).getWage()),
+                            Double.toString(Data.userList.get(i).getWage() * Data.getTotalTime(i))
+                    };
+                    rows.add(row);
+                }
+                TextTable t = new TextTable(top, rows.toArray(new String[rows.size()][]));
                 System.out.println("Users: ");
                 for (int i = 0; i < Data.userList.size(); i++) {
                     System.out.println(i + " - " + Data.userList.get(i).getUsername());
                 }
+                t.printTable();
             } else if (input.equals("q")) {
                 // Quit
                 return;
