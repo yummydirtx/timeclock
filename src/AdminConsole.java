@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import dnl.utils.text.table.TextTable;
 
 public class AdminConsole {
     public static void run() {
