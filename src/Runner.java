@@ -35,7 +35,7 @@ public class Runner {
                     // Clock.clockOut();
                 } else if (input.equals("a")) {
                     // Run the admin console
-                    // AdminConsole.run();
+                    AdminConsole.run();
                 } else if (input.equals("l")) {
                     // Logout
                     LogIn.logOut();
