@@ -31,7 +31,7 @@ public class Clock {
             // clock out
             Data.userList.get(LogIn.getCurrentUser()).setClockedIn(false);
             // record time worked to the correct day of the week in timeList
-            Data.userList.get(LogIn.getCurrentUser()).setClockOutTime(System.currentTimeMillis());
+            //Data.userList.get(LogIn.getCurrentUser()).setClockOutTime(System.currentTimeMillis());
             //Data.userList.get(LogIn.getCurrentUser()).setClockOutTime(System.currentTimeMillis());
             // print that the user has clocked out
             System.out.println("You have clocked out.");
