@@ -1,4 +1,6 @@
 import java.util.Calendar;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 // Manage time functions
 public class Clock {
@@ -14,7 +16,7 @@ public class Clock {
             Data.userList.get(LogIn.getCurrentUser()).setClockInTime(System.currentTimeMillis());
             // Data.userList.get(LogIn.getCurrentUser()).setClockInTime(System.currentTimeMillis());
             // print that the user has clocked in
-            System.out.println("You have clocked in.");
+            System.out.println("You have clocked in. Current time: " + java.time.LocalTime.now() );
         } else {
             // print that the user is already clocked in
             System.out.println("You are already clocked in.");
