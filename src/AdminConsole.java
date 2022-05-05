@@ -33,14 +33,14 @@ public class AdminConsole {
                     String[] row = {
                             Integer.toString(i),
                             Data.userList.get(i).getUsername(),
-                            Long.toString(Data.getTime(i, 0)),
-                            Long.toString(Data.getTime(i, 1)),
-                            Long.toString(Data.getTime(i, 2)),
-                            Long.toString(Data.getTime(i, 3)),
-                            Long.toString(Data.getTime(i, 4)),
-                            Long.toString(Data.getTime(i, 5)),
-                            Long.toString(Data.getTime(i, 6)),
-                            Long.toString(Data.getTotalTime(i)),
+                            Double.toString(Data.getTime(i, 0) / 3600000.0),
+                            Double.toString(Data.getTime(i, 1) / 3600000.0),
+                            Double.toString(Data.getTime(i, 2) / 3600000.0),
+                            Double.toString(Data.getTime(i, 3) / 3600000.0),
+                            Double.toString(Data.getTime(i, 4) / 3600000.0),
+                            Double.toString(Data.getTime(i, 5) / 3600000.0),
+                            Double.toString(Data.getTime(i, 6) / 3600000.0),
+                            Double.toString(Data.getTotalTime(i) / 3600000.0),
                             Double.toString(Data.userList.get(i).getWage()),
                             Double.toString(Data.userList.get(i).getWage() * Data.getTotalTime(i) / 3600000.0)
                     };
