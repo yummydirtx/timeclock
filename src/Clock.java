@@ -13,7 +13,6 @@ public class Clock {
             Data.userList.get(LogIn.getCurrentUser()).setClockedIn(true);
             // set the clock in time
             Data.userList.get(LogIn.getCurrentUser()).setClockInTime(System.currentTimeMillis());
-            // Data.userList.get(LogIn.getCurrentUser()).setClockInTime(System.currentTimeMillis());
             // print that the user has clocked in
             System.out.println("You have clocked in. Current time: " + java.time.LocalTime.now());
         } else {
@@ -47,7 +46,6 @@ public class Clock {
         // end time subtracted from start time
         long total = System.currentTimeMillis() - Data.userList.get(LogIn.getCurrentUser()).getClockInTime();
         return total;
-        // return 0.0;
     }
 
     public static String totalTime(int user) {
