@@ -32,7 +32,7 @@ public class Runner {
                         Clock.clockIn();
                     } else if (input.equals("o")) {
                         // Clock out
-                        // Clock.clockOut();
+                        Clock.clockOut();
                     } else if (input.equals("a")) {
                         // Run the admin console
                         AdminConsole.run();
