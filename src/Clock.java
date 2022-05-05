@@ -1,6 +1,4 @@
 import java.util.Calendar;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.text.DecimalFormat;
 
 // Manage time functions
