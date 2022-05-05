@@ -27,6 +27,7 @@ public class Clock {
 
     // clock out
     public static void clockOut() {
+        DecimalFormat df = new DecimalFormat("0.00");
         Calendar calendar = Calendar.getInstance();
         // if the user is clocked in
         if (Data.userList.get(LogIn.getCurrentUser()).isClockedIn()) {
@@ -35,8 +36,9 @@ public class Clock {
             // record time worked to the correct day of the week in timeList
             Data.recordTime(LogIn.getCurrentUser(), calendar.get(Calendar.DAY_OF_WEEK) - 1, totalTime());
             // print that the user has clocked out
+
             System.out.println("You have clocked out. Current time: " + java.time.LocalTime.now() + ".\nTotal time: "
-                    + totalTime());
+                    + df.format(totalTime() / 3600000.0) + " hours.");
         } else {
             // print that the user is already clocked out
             System.out.println("You are already clocked out.");
