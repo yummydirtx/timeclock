@@ -60,7 +60,7 @@ public class LogIn {
             System.out.println("Enter your username: ");
             int username = scanner.nextInt();
             if (username == -1) {
-                break;
+                return;
             }
             System.out.println("Enter your password: ");
             String password = scanner.nextLine();
@@ -76,7 +76,7 @@ public class LogIn {
             System.out.println("Enter the password for the user you would like to create: ");
             String password = scanner.nextLine();
             System.out.println("Is this user an admin? (y/n)");
-            String admin = scanner.next();
+            String admin = scanner.nextLine();
             System.out.println("What is this user's name?");
             String name = scanner.nextLine();
             System.out.println("What is this user's wage?");
