@@ -35,7 +35,11 @@ public class Runner {
                         Clock.clockOut();
                     } else if (input.equals("a")) {
                         // Run the admin console
-                        AdminConsole.run();
+                        if (Data.userList.get(LogIn.getCurrentUser()).isAdmin()) {
+                            AdminConsole.run();
+                        } else {
+                            System.out.println("You do not have permission to access this console.");
+                        }
                     } else if (input.equals("l")) {
                         // Logout
                         LogIn.logOut();
