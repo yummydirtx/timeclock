@@ -26,7 +26,7 @@ public class AdminConsole {
                 }
             } else if (input.equals("l")) {
                 // List all users
-                final String[] top = { "Username", "Name", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun", "Total",
+                final String[] top = { "Username", "Name", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Total",
                         "Wage", "Earnings" };
                 ArrayList<String[]> rows = new ArrayList<String[]>();
                 for (int i = 0; i < Data.userList.size(); i++) {
@@ -42,7 +42,7 @@ public class AdminConsole {
                             Long.toString(Data.getTime(i, 6)),
                             Long.toString(Data.getTotalTime(i)),
                             Double.toString(Data.userList.get(i).getWage()),
-                            Double.toString(Data.userList.get(i).getWage() * Data.getTotalTime(i))
+                            Double.toString(Data.userList.get(i).getWage() * Data.getTotalTime(i) / 3600000.0)
                     };
                     rows.add(row);
                 }
