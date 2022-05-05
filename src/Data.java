@@ -108,7 +108,7 @@ public class Data {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        if (cal.get(Calendar.DAY_OF_WEEK) == 1) {
+        if (cal.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
             for (int i = 0; i < userList.size(); i++) {
                 for (int j = 0; j < 7; j++) {
                     timeList.get(i).set(j, 0l);
