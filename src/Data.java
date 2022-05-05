@@ -7,6 +7,7 @@ import user.Admin;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class Data {
 
@@ -76,6 +77,7 @@ public class Data {
     }
 
     public static void loadData() {
+        Calendar cal = Calendar.getInstance();
         try {
             FileInputStream fileIn = new FileInputStream("timeList.alex");
             // Create the object input stream
@@ -105,6 +107,14 @@ public class Data {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+        }
+        if (cal.get(Calendar.DAY_OF_WEEK) == 1) {
+            for (int i = 0; i < userList.size(); i++) {
+                for (int j = 0; j < 7; j++) {
+                    timeList.get(i).set(j, 0l);
+                }
+            }
+            System.out.println("Time data cleared for the new week!");
         }
     }
 }
