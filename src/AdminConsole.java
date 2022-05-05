@@ -1,6 +1,7 @@
 import java.util.Scanner;
 import dnl.utils.text.table.TextTable;
 import java.util.ArrayList;
+import java.text.DecimalFormat;
 
 public class AdminConsole {
     public static void run() {
@@ -21,11 +22,13 @@ public class AdminConsole {
                 System.out.println("Currently on the clock: ");
                 for (int i = 0; i < Data.userList.size(); i++) {
                     if (Data.userList.get(i).isClockedIn()) {
-                        System.out.println(i + " - " + Data.userList.get(i).getUsername());
+                        System.out.println(i + " - " + Data.userList.get(i).getUsername() + " On the clock for: "
+                                + Clock.totalTime(i) + " hours");
                     }
                 }
             } else if (input.equals("l")) {
                 // List all users
+                DecimalFormat df = new DecimalFormat("0.00");
                 final String[] top = { "Username", "Name", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Total",
                         "Wage", "Earnings" };
                 ArrayList<String[]> rows = new ArrayList<String[]>();
@@ -33,16 +36,16 @@ public class AdminConsole {
                     String[] row = {
                             Integer.toString(i),
                             Data.userList.get(i).getUsername(),
-                            Double.toString(Data.getTime(i, 0) / 3600000.0),
-                            Double.toString(Data.getTime(i, 1) / 3600000.0),
-                            Double.toString(Data.getTime(i, 2) / 3600000.0),
-                            Double.toString(Data.getTime(i, 3) / 3600000.0),
-                            Double.toString(Data.getTime(i, 4) / 3600000.0),
-                            Double.toString(Data.getTime(i, 5) / 3600000.0),
-                            Double.toString(Data.getTime(i, 6) / 3600000.0),
-                            Double.toString(Data.getTotalTime(i) / 3600000.0),
-                            Double.toString(Data.userList.get(i).getWage()),
-                            Double.toString(Data.userList.get(i).getWage() * Data.getTotalTime(i) / 3600000.0)
+                            df.format(Data.getTime(i, 0) / 3600000.0),
+                            df.format(Data.getTime(i, 1) / 3600000.0),
+                            df.format(Data.getTime(i, 2) / 3600000.0),
+                            df.format(Data.getTime(i, 3) / 3600000.0),
+                            df.format(Data.getTime(i, 4) / 3600000.0),
+                            df.format(Data.getTime(i, 5) / 3600000.0),
+                            df.format(Data.getTime(i, 6) / 3600000.0),
+                            df.format(Data.getTotalTime(i) / 3600000.0),
+                            df.format(Data.userList.get(i).getWage()),
+                            df.format(Data.userList.get(i).getWage() * Data.getTotalTime(i) / 3600000.0)
                     };
                     rows.add(row);
                 }

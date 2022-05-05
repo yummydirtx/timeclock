@@ -1,6 +1,7 @@
 import java.util.Calendar;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.text.DecimalFormat;
 
 // Manage time functions
 public class Clock {
@@ -16,7 +17,7 @@ public class Clock {
             Data.userList.get(LogIn.getCurrentUser()).setClockInTime(System.currentTimeMillis());
             // Data.userList.get(LogIn.getCurrentUser()).setClockInTime(System.currentTimeMillis());
             // print that the user has clocked in
-            System.out.println("You have clocked in. Current time: " + java.time.LocalTime.now() );
+            System.out.println("You have clocked in. Current time: " + java.time.LocalTime.now());
         } else {
             // print that the user is already clocked in
             System.out.println("You are already clocked in.");
@@ -34,7 +35,8 @@ public class Clock {
             // record time worked to the correct day of the week in timeList
             Data.recordTime(LogIn.getCurrentUser(), calendar.get(Calendar.DAY_OF_WEEK) - 1, totalTime());
             // print that the user has clocked out
-            System.out.println("You have clocked out. Current time: " + java.time.LocalTime.now() + ".\nTotal time: " + totalTime());
+            System.out.println("You have clocked out. Current time: " + java.time.LocalTime.now() + ".\nTotal time: "
+                    + totalTime());
         } else {
             // print that the user is already clocked out
             System.out.println("You are already clocked out.");
@@ -46,5 +48,12 @@ public class Clock {
         long total = System.currentTimeMillis() - Data.userList.get(LogIn.getCurrentUser()).getClockInTime();
         return total;
         // return 0.0;
+    }
+
+    public static String totalTime(int user) {
+        // end time subtracted from start time
+        DecimalFormat df = new DecimalFormat("#.00");
+        double total = (System.currentTimeMillis() - Data.userList.get(user).getClockInTime()) / 3600000.0;
+        return df.format(total);
     }
 }
