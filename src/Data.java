@@ -27,7 +27,7 @@ public class Data {
     }
 
     public static void recordTime(int user, int day, Long time) {
-        timeList.get(user).set(day, time);
+        timeList.get(user).set(day, time + timeList.get(user).get(day));
     }
 
     public static Long getTime(int user, int day) {
