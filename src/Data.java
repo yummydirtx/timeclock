@@ -19,7 +19,10 @@ public class Data {
         } else {
             userList.add(new User(password, username, wage));
         }
-        timeList.add(new ArrayList<Long>(7));
+        timeList.add(new ArrayList<Long>());
+        for (int i = 0; i < 7; i++) {
+            timeList.get(userList.size() - 1).add(0L);
+        }
     }
 
     public static void recordTime(int user, int day, Long time) {
