@@ -26,7 +26,7 @@ public class LogIn {
 
     public static void loginPrompt() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter your username: ");
+        System.out.println("Enter your user ID: ");
         int username = scanner.nextInt();
         System.out.println("Enter your password: ");
         String password = scanner.next();
@@ -77,7 +77,7 @@ public class LogIn {
         while (notAdmin) {
             System.out.println(
                     "To do this you must log in as an admin. (if there is no admin account then type in 0 for username and set the password to the one you'd like to be associated with the first admin) -1 to cancel");
-            System.out.println("Enter your username: ");
+            System.out.println("Enter your user ID: ");
             int username = scanner.nextInt();
             if (username == -1) {
                 return;
